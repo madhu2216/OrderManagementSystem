@@ -51,4 +51,9 @@ public class OrderController {
         return reportingService.getReport();
     }
 
+    @GetMapping("/top-customers")
+    public List<CustomerOrderReport> fetchTopCustomers() {
+        return reportingService.getTopCustomers();
+    }
+
 }

@@ -61,6 +61,7 @@ public class OrderImpl implements OrderService{
         BigDecimal total = BigDecimal.ZERO;
 
         for (ProductOrderRequest req : productRequests) {
+            
             Product product = products.stream()
                 .filter(p -> p.getId().equals(req.getProductId()))
                 .findFirst()

@@ -24,5 +24,16 @@ public class ReportingServiceImpl {
 
     }
 
+    public List<CustomerOrderReport> getTopCustomers() {
+        List<Object[]> result = orderRepository.getTop5Customers();
+
+        return result.stream()
+                .map(row -> new CustomerOrderReport(
+                        ((Number) row[0]).longValue(),  
+                        ((Number) row[1]).intValue()    
+                ))
+                .toList();
+    }
+
 
 }
